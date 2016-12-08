@@ -1,7 +1,7 @@
 function calculatorModule(x) {
     //private
-    var memory = 0;
-    var total = 0;
+    var memory = [];
+    var total = [];
 
     var isValid = function(x) {
       if(typeof x === "number") {
@@ -14,8 +14,8 @@ function calculatorModule(x) {
     return {
       load: function(x) {
         if(isValid(x)){
-          total = x;
-          return total;
+          total.push(x)
+          return total.join("");
         }
       },
       getTotal: function() {
@@ -45,10 +45,12 @@ function calculatorModule(x) {
         return memory;
       },
       saveMemory: function() {
-        memory = total;
+        memory.push(total);
+        console.log(memory)
       },
       clearMemory: function() {
-        memory = 0;
+        total = [];
+        //memory = [];
       }
     };
  }

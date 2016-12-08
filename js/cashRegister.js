@@ -2,29 +2,45 @@ var myCalc = calculatorModule();
 var total = myCalc.getTotal();
 
 //var add = myCalc.add(5);
-var memDisp = [];
+
 
 
 var display = document.getElementById("display");
 display.innerHTML = total;
 
-var memory = []
+//var memory = []
 
 for(var i = 0; i < 10; i++) {
   document.getElementById(i).addEventListener('click', function(e) {
   x = e.currentTarget.id
-  memory.push(x);
-  display.innerHTML = memory.join("");
+  x = Number(x);
+  display.innerHTML = myCalc.load(x)
+  myCalc.getTotal()
   })
 }
 
-document.getElementById("clear").addEventListener('click', function(e) {
+document.getElementById("btns").addEventListener('click', function(e) {
+  if (e.currentTarget.classList.contains(".clear")){
+      myCalc.clearMemory();
+      display.innerHTML = 0;
+      }
+})
+
+//var clear = document.getElementById('clear');
+
+
+
+// var clear = document.getElementById("clear").addEventListener('click', function(e) {
+//   myCalc.clearMemory();
+//   display.innerHTML = 0;
+//   })
+
+
+document.getElementById("add").addEventListener('click', function(e) {
   x = e.currentTarget.id
-  memory = [];
+
   display.innerHTML = 0;
   })
-
-
 
 
 
@@ -47,7 +63,6 @@ document.getElementById("clear").addEventListener('click', function(e) {
 // var subtract = document.getElementById('sub');
 // var add = document.getElementById('add');
 // var equal = document.getElementById('equal');
-// var clear = document.getElementById('clear');
 // var getBalance = document.getElementById('getBalance');
 // var depositCash = document.getElementById('deposit');
 // var withdrawCash = document.getElementById('withdraw');
