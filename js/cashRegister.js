@@ -1,18 +1,12 @@
 var myCalc = calculatorModule();
-var getTotal = myCalc.getTotal();
-var recallMemory = myCalc.recallMemory()
-var saveMemory = myCalc.saveMemory();
-var clearMemory = myCalc.clearMemory();
+// var getTotal = myCalc.getTotal();
+// var recallMemory = myCalc.recallMemory()
+// var saveMemory = myCalc.saveMemory();
+// var clearMemory = myCalc.clearMemory();
 
-//var add = myCalc.add(5);
 
 var display = document.getElementById('display');
-// display.innerHTML = total;
-
-// var memory = []
-// var memory2 = []
-// var number = 0;
-// var number2 = 0;
+display.innerHTML = 0;
 var total = 0;
 var operator = false;
 var add = false;
@@ -32,7 +26,6 @@ for(var i = 0; i < 10; i++) {
       operator = false;
         if(add) {
           total = myCalc.add(x);
-          console.log(total);
           add = false;
         } else if(sub) {
           total = myCalc.subtract(x);
@@ -40,6 +33,9 @@ for(var i = 0; i < 10; i++) {
         } else if(mult) {
           total = myCalc.multiply(x);
           mult = false;
+        } else if(div) {
+          total = myCalc.divide(x);
+          div = false;
         }
     }
     else {
@@ -50,12 +46,15 @@ for(var i = 0; i < 10; i++) {
 
 var clear = document.getElementById("clear").addEventListener('click', function(e) {
   display.innerHTML = 0;
+  total = 0;
   operator = false;
   add = false;
-  })
+  sub = false;
+  mult = false;
+  div = false;
+})
 
 var add = document.getElementById("add").addEventListener('click', function(e) {
-    console.log("add");
     if(total !== 0) {
       display.innerHTML = total
     }
@@ -65,8 +64,7 @@ var add = document.getElementById("add").addEventListener('click', function(e) {
     add = true;
   })
 
-var sub = document.getElementById("sub").addEventListener('click', function(e) {
-  console.log("subtract");
+var sub = document.getElementById("sub").addEventListener('click', function(e) {;
     if(total !== 0) {
       display.innerHTML = total
     }
@@ -77,7 +75,6 @@ var sub = document.getElementById("sub").addEventListener('click', function(e) {
   })
 
 var multiply = document.getElementById("mult").addEventListener('click', function(e) {
-  console.log("multiply");
   if(total !== 0) {
     display.innerHTML = total
   }
@@ -88,162 +85,19 @@ var multiply = document.getElementById("mult").addEventListener('click', functio
 
   })
 
-
-
-var equal = document.getElementById("equal").addEventListener('click', function(e) {
-  console.log("equal");
-  getTotal;
-
-
-  // if(add) {
-  //   total = myCalc.add(number2);
-  //   console.log(total)
-  //   display.innerHTML = total;
-  //   add = false;
-  //   operator = false;
-
-  // } else if (sub){
-  //     number2 = Number(number2)
-  //     total = myCalc.subtract(number2);
-  //     console.log(total)
-  //     display.innerHTML = total;
-  //     sub = false;
-  //     operator = false;
-
-  //   } else if(mult) {
-  //     number2 = Number(number2)
-  //     total = myCalc.multiply(number2);
-  //     console.log(total)
-  //     display.innerHTML = total;
-  //     mult = false;
-  //     operator = false;
-
-  //     } else if(div) {
-  //       number2 = Number(number2)
-  //       total = myCalc.divide(number2);
-  //       console.log(total)
-  //       display.innerHTML = total;
-  //       div = false;
-  //       operator = false;
-  //     }
-  // memory = [];
-  // memory2 = [];
-  // number2 = 0;
-  // number = total;
-  // myCalc.load(number)
-  // console.log(number)
-})
-
-
-
-
-// for(var i = 0; i < 10; i++) {
-//   document.getElementById(i).addEventListener('click', function(e) {
-//   var x = e.currentTarget.id
-//   if(!operator) {
-//     memory.push(x)
-//     number = memory.join("")
-//     display.innerHTML = number
-//   } else {
-//     console.log("num2:", operator)
-//     memory2.push(x)
-//     number2 = memory2.join("")
-//     display.innerHTML = number2
-//     console.log(number2);
-//     }
-//   })
-// }
-
-
-// var clear = document.getElementById("clear").addEventListener('click', function(e) {
-//   memory = [];
-//   number = 0;
-//   memory2 = [];
-//   number2 = []
-//   display.innerHTML = 0;
-//   operator = false;
-//   })
-
-
-// var add = document.getElementById("add").addEventListener('click', function(e) {
-//     console.log("add");
-//     number = Number(number)
-//     console.log(myCalc.load(number));
-//     operator = true;
-//     add = true;
-//   })
-
-// var sub = document.getElementById("sub").addEventListener('click', function(e) {
-//   console.log("subtract");
-//   number = Number(number)
-//   myCalc.load(number);
-//   operator = true;
-//   sub = true;
-//   })
-
-// var multiply = document.getElementById("mult").addEventListener('click', function(e) {
-//   console.log("multiply");
-//   number = Number(number)
-//   myCalc.load(number);
-//   operator = true;
-//   mult = true;
-
-//   })
-
 var divide = document.getElementById("divide").addEventListener('click', function(e) {
-  console.log("divide");
-  number = Number(number)
-  myCalc.load(number);
+  if(total !== 0) {
+    display.innerHTML = total
+  }
+  var disp = Number(display.innerHTML);
+  total = myCalc.load(disp);
   operator = true;
   div = true;
   })
 
-
-
-// var equal = document.getElementById("equal").addEventListener('click', function(e) {
-//   console.log("equal");
-
-//   if(add) {
-//     number2 = Number(number2)
-//     total = myCalc.add(number2);
-//     console.log(total)
-//     display.innerHTML = total;
-//     add = false;
-//     operator = false;
-
-//   } else if (sub){
-//       number2 = Number(number2)
-//       total = myCalc.subtract(number2);
-//       console.log(total)
-//       display.innerHTML = total;
-//       sub = false;
-//       operator = false;
-
-//     } else if(mult) {
-//       number2 = Number(number2)
-//       total = myCalc.multiply(number2);
-//       console.log(total)
-//       display.innerHTML = total;
-//       mult = false;
-//       operator = false;
-
-//       } else if(div) {
-//         number2 = Number(number2)
-//         total = myCalc.divide(number2);
-//         console.log(total)
-//         display.innerHTML = total;
-//         div = false;
-//         operator = false;
-//       }
-//   memory = [];
-//   memory2 = [];
-//   number2 = 0;
-//   number = total;
-//   myCalc.load(number)
-//   console.log(number)
-// })
-
-
+var equal = document.getElementById("equal").addEventListener('click', function(e) {
+  display.innerHTML = total;
+})
 
 
 var getBalance = document.getElementById("getBalance").addEventListener('click', function(e) {
@@ -256,4 +110,4 @@ var depositCash = document.getElementById("deposit").addEventListener('click', f
 
 var withdraw = document.getElementById("withdraw").addEventListener('click', function(e) {
   console.log("withdraw cash");
-  })
+  });
