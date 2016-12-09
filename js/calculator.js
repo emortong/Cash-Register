@@ -1,7 +1,7 @@
 function calculatorModule(x) {
     //private
-    var memory = [];
-    var total = [];
+    var memory = 0;
+    var total = 0;
 
     var isValid = function(x) {
       if(typeof x === "number") {
@@ -13,18 +13,18 @@ function calculatorModule(x) {
     //public
     return {
       load: function(x) {
-        if(isValid(x)){
-          total.push(x)
-          return total.join("");
-        }
+        //if(isValid(x)){
+          total = x;
+          return total;
+        //}
       },
       getTotal: function() {
         return total;
       },
       add: function(x) {
-        if(isValid(x)){
+        //if(isValid(x)){
           return total += x;
-        }
+        //}
       },
       subtract: function(x) {
         if(isValid(x)){
@@ -45,12 +45,10 @@ function calculatorModule(x) {
         return memory;
       },
       saveMemory: function() {
-        memory.push(total);
-        console.log(memory)
+        memory = total;
       },
       clearMemory: function() {
-        total = [];
-        //memory = [];
+        memory = 0;
       }
     };
  }

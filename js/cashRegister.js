@@ -1,48 +1,92 @@
 var myCalc = calculatorModule();
 var total = myCalc.getTotal();
+var recallMemory = myCalc.recallMemory()
+var saveMemory = myCalc.saveMemory();
+var clearMemory = myCalc.clearMemory();
 
 //var add = myCalc.add(5);
 
 
 
-var display = document.getElementById("display");
+var display = document.getElementById('display');
 display.innerHTML = total;
 
-//var memory = []
+var memory = []
+var number = 0;
+var total = 0;
 
 for(var i = 0; i < 10; i++) {
   document.getElementById(i).addEventListener('click', function(e) {
-  x = e.currentTarget.id
-  x = Number(x);
-  display.innerHTML = myCalc.load(x)
-  myCalc.getTotal()
+  var x = e.currentTarget.id
+  memory.push(x)
+  number = memory.join("")
+  display.innerHTML = number
+  // myCalc.getTotal()
   })
 }
 
-document.getElementById("btns").addEventListener('click', function(e) {
-  if (e.currentTarget.classList.contains(".clear")){
-      myCalc.clearMemory();
-      display.innerHTML = 0;
-      }
-})
+// function displaying(num) {
 
-//var clear = document.getElementById('clear');
+// }
 
 
-
-// var clear = document.getElementById("clear").addEventListener('click', function(e) {
-//   myCalc.clearMemory();
-//   display.innerHTML = 0;
-//   })
-
-
-document.getElementById("add").addEventListener('click', function(e) {
-  x = e.currentTarget.id
-
+var clear = document.getElementById("clear").addEventListener('click', function(e) {
+  clearMemory;
+  memory = [];
+  number = 0;
   display.innerHTML = 0;
   })
 
 
+var add = document.getElementById("add").addEventListener('click', function(e) {
+  console.log("add");
+  myCalc.load(number);
+  total = myCalc.add(number);
+  console.log(total)
+
+  })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var sub = document.getElementById("sub").addEventListener('click', function(e) {
+  console.log("subtract");
+  })
+
+var multiply = document.getElementById("mult").addEventListener('click', function(e) {
+  console.log("multiply");
+  })
+
+var divide = document.getElementById("divide").addEventListener('click', function(e) {
+  console.log("divide");
+  })
+
+var getBalance = document.getElementById("getBalance").addEventListener('click', function(e) {
+  console.log("get balance");
+  })
+
+var depositCash = document.getElementById("deposit").addEventListener('click', function(e) {
+  console.log("deposit cash");
+  })
+
+var withdraw = document.getElementById("withdraw").addEventListener('click', function(e) {
+  console.log("withdraw cash");
+  })
 
 
 // probably trash
@@ -150,3 +194,15 @@ document.getElementById("add").addEventListener('click', function(e) {
 // })
 
 // btnBox.appendChild(btn);
+
+
+
+// document.getElementById('btns').addEventListener('click', function(e) {
+//   console.log(e.currentTarget.classList)
+
+//   if(e.currentTarget.classList.contains("clear")){
+//       myCalc.clearMemory();
+//       display.innerHTML = 0;
+//       console.log("a")
+//       }
+// })
