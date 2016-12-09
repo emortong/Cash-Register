@@ -12,15 +12,26 @@ var display = document.getElementById('display');
 display.innerHTML = total;
 
 var memory = []
+var memory2 = []
 var number = 0;
+var number2 = 0;
 var total = 0;
+var operator = false;
 
 for(var i = 0; i < 10; i++) {
   document.getElementById(i).addEventListener('click', function(e) {
   var x = e.currentTarget.id
-  memory.push(x)
-  number = memory.join("")
-  display.innerHTML = number
+  if(!operator) {
+    memory.push(x)
+    number = memory.join("")
+    display.innerHTML = number
+    //console.log("num1:", operator)
+  } else {
+    //console.log("num2:", operator)
+    memory2.push(x)
+    number2 = memory2.join("")
+    display.innerHTML = number2
+    }
   // myCalc.getTotal()
   })
 }
@@ -34,14 +45,18 @@ var clear = document.getElementById("clear").addEventListener('click', function(
   clearMemory;
   memory = [];
   number = 0;
+  memory2 = [];
+  number2 = []
   display.innerHTML = 0;
+  operator = false;
   })
 
 
 var add = document.getElementById("add").addEventListener('click', function(e) {
   console.log("add");
   myCalc.load(number);
-  total = myCalc.add(number);
+  operator = true;
+  total = myCalc.add(number2);
   console.log(total)
 
   })
