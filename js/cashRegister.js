@@ -17,6 +17,7 @@ var number = 0;
 var number2 = 0;
 var total = 0;
 var operator = false;
+var add = false;
 
 for(var i = 0; i < 10; i++) {
   document.getElementById(i).addEventListener('click', function(e) {
@@ -27,7 +28,7 @@ for(var i = 0; i < 10; i++) {
     display.innerHTML = number
     //console.log("num1:", operator)
   } else {
-    //console.log("num2:", operator)
+    console.log("num2:", operator)
     memory2.push(x)
     number2 = memory2.join("")
     display.innerHTML = number2
@@ -54,12 +55,26 @@ var clear = document.getElementById("clear").addEventListener('click', function(
 
 var add = document.getElementById("add").addEventListener('click', function(e) {
   console.log("add");
+  number = Number(number)
   myCalc.load(number);
   operator = true;
-  total = myCalc.add(number2);
-  console.log(total)
+  add = true;
 
+    // total = myCalc.add(number2);
+    // console.log(total)
   })
+
+var equal = document.getElementById("equal").addEventListener('click', function(e) {
+  console.log("equal");
+  if(add) {
+    number2 = Number(number2)
+    total = myCalc.add(number2);
+    console.log(total)
+    display.innerHTML = total;
+  }
+  })
+
+
 
 
 
