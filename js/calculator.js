@@ -13,18 +13,18 @@ function calculatorModule(x) {
     //public
     return {
       load: function(x) {
-        //if(isValid(x)){
+        if(isValid(x)){
           total = x;
           return total;
-        //}
+        }
       },
       getTotal: function() {
         return total;
       },
       add: function(x) {
-        //if(isValid(x)){
+        if(isValid(x)){
           return total += x;
-        //}
+        }
       },
       subtract: function(x) {
         if(isValid(x)){
