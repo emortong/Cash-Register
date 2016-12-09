@@ -6,10 +6,8 @@ var clearMemory = myCalc.clearMemory();
 
 //var add = myCalc.add(5);
 
-
-
 var display = document.getElementById('display');
-display.innerHTML = total;
+// display.innerHTML = total;
 
 var memory = []
 var memory2 = []
@@ -22,42 +20,77 @@ var sub = false;
 var mult = false;
 var div = false;
 
-
 for(var i = 0; i < 10; i++) {
   document.getElementById(i).addEventListener('click', function(e) {
-  var x = e.currentTarget.id
-  if(!operator) {
-    memory.push(x)
-    number = memory.join("")
-    display.innerHTML = number
-  } else {
-    console.log("num2:", operator)
-    memory2.push(x)
-    number2 = memory2.join("")
-    display.innerHTML = number2
-    console.log(number2);
+    x = e.currentTarget.id
+    x = Number(x);
+    if(display.innerHTML === "0") {
+      display.innerHTML = x
+    } else {
+      display.innerHTML += x
+      }
+    if(operator) {
+      total = number;
+      display.innerHTML += x;
     }
   })
 }
 
-
 var clear = document.getElementById("clear").addEventListener('click', function(e) {
-  memory = [];
-  number = 0;
-  memory2 = [];
-  number2 = []
+  // memory = [];
+  // number = 0;
+  // memory2 = [];
+  // number2 = []
   display.innerHTML = 0;
   operator = false;
   })
 
-
 var add = document.getElementById("add").addEventListener('click', function(e) {
     console.log("add");
-    number = Number(number)
-    console.log(myCalc.load(number));
+    number = Number(display.innerHTML);
+    myCalc.load(number);
     operator = true;
     add = true;
   })
+
+
+
+
+// for(var i = 0; i < 10; i++) {
+//   document.getElementById(i).addEventListener('click', function(e) {
+//   var x = e.currentTarget.id
+//   if(!operator) {
+//     memory.push(x)
+//     number = memory.join("")
+//     display.innerHTML = number
+//   } else {
+//     console.log("num2:", operator)
+//     memory2.push(x)
+//     number2 = memory2.join("")
+//     display.innerHTML = number2
+//     console.log(number2);
+//     }
+//   })
+// }
+
+
+// var clear = document.getElementById("clear").addEventListener('click', function(e) {
+//   memory = [];
+//   number = 0;
+//   memory2 = [];
+//   number2 = []
+//   display.innerHTML = 0;
+//   operator = false;
+//   })
+
+
+// var add = document.getElementById("add").addEventListener('click', function(e) {
+//     console.log("add");
+//     number = Number(number)
+//     console.log(myCalc.load(number));
+//     operator = true;
+//     add = true;
+//   })
 
 var sub = document.getElementById("sub").addEventListener('click', function(e) {
   console.log("subtract");
@@ -143,5 +176,3 @@ var depositCash = document.getElementById("deposit").addEventListener('click', f
 var withdraw = document.getElementById("withdraw").addEventListener('click', function(e) {
   console.log("withdraw cash");
   })
-
-
