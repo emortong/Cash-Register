@@ -22,6 +22,7 @@ var sub = false;
 var mult = false;
 var div = false;
 
+
 for(var i = 0; i < 10; i++) {
   document.getElementById(i).addEventListener('click', function(e) {
   var x = e.currentTarget.id
@@ -34,14 +35,13 @@ for(var i = 0; i < 10; i++) {
     memory2.push(x)
     number2 = memory2.join("")
     display.innerHTML = number2
+    console.log(number2);
     }
   })
 }
 
 
-
 var clear = document.getElementById("clear").addEventListener('click', function(e) {
-  clearMemory;
   memory = [];
   number = 0;
   memory2 = [];
@@ -54,7 +54,7 @@ var clear = document.getElementById("clear").addEventListener('click', function(
 var add = document.getElementById("add").addEventListener('click', function(e) {
     console.log("add");
     number = Number(number)
-    myCalc.load(number);
+    console.log(myCalc.load(number));
     operator = true;
     add = true;
   })
@@ -121,7 +121,12 @@ var equal = document.getElementById("equal").addEventListener('click', function(
         div = false;
         operator = false;
       }
-
+  memory = [];
+  memory2 = [];
+  number2 = 0;
+  number = total;
+  myCalc.load(number)
+  console.log(number)
 })
 
 
