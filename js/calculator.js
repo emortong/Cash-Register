@@ -44,8 +44,8 @@ function calculatorModule(x) {
       recallMemory: function() {
         return memory;
       },
-      saveMemory: function() {
-        memory = total;
+      saveMemory: function(x) {
+         return memory += x;
       },
       clearMemory: function() {
         memory = 0;
