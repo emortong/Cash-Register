@@ -1,0 +1,50 @@
+
+* {
+  align-content: center;
+  font-family: helvetica;
+}
+
+h1 {
+  font-weight: 100;
+  font-size: 45px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.calc {
+  align-content: center;
+  margin-right: 947px;
+  background-color: #cccccc;
+  height:243px;
+}
+
+#display {
+  background-color: #ffcccf;
+  margin-left: 12px;
+  margin-right: 14px;
+  padding:0px 10px;
+  text-align: right;
+  color: white;
+  font-size: 50px;
+  font-weight: 100;
+
+}
+
+#equal {
+  width: 263px;
+}
+
+.btns {
+  margin: 10px;
+}
+
+button {
+  height: 30px;
+  width: 30px;
+  margin: 2px;
+  align-content: center;
+}
+
+.big {
+  width: 100px;
+  margin-left: 10px;
+}

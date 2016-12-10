@@ -2,42 +2,45 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="style.css">
   <title>Cash Register</title>
 </head>
 <body>
   <h1>Cash Register</h1>
-  <div id="display"></div>
-  <div id="btns" class="test">
-    <div id="btnRow1">
-      <button type="button" id="7">7</button>
-      <button type="button" id="8">8</button>
-      <button type="button" id="9">9</button>
-      <button type="button" id="divide" class="operator">/</button>
-      <button type="button" id="clear" class="operator">clear</button>
-    </div>
-    <div id="btnRow2">
-      <button type="button" id="4">4</button>
-      <button type="button" id="5">5</button>
-      <button type="button" id="6">6</button>
-      <button type="button" id="mult" class="operator">x</button>
-      <button type="button" id="getBalance" class="operator">get balance</button>
-    </div>
-    <div id="btnRow3">
-      <button type="button" id="1">1</button>
-      <button type="button" id="2">2</button>
-      <button type="button" id="3">3</button>
-      <button type="button" id="sub" class="operator">-</button>
-      <button type="button" id="deposit" class="operator">deposit cash</button>
-    </div>
-    <div id="btnRow4">
-      <button type="button" id="0">0</button>
-      <button type="button" id="10">00</button>
-      <button type="button" id="dot">.</button>
-      <button type="button" id="add" class="operator">+</button>
-      <button type="button" id="withdraw" class="operator">withdraw cash</button>
-    </div>
-      <div id="btnRow5">
-      <button type="button" id="equal" class="operator">=</button>
+  <div class="calc">
+    <div id="display"></div>
+    <div id="btns" class="btns">
+      <div id="btnRow1">
+        <button type="button" id="7" class="nums">7</button>
+        <button type="button" id="8" class="nums">8</button>
+        <button type="button" id="9" class="nums">9</button>
+        <button type="button" id="divide" class="operator">/</button>
+        <button type="button" id="clear" class="big">clear</button>
+      </div>
+      <div id="btnRow2">
+        <button type="button" id="4" class="nums">4</button>
+        <button type="button" id="5" class="nums">5</button>
+        <button type="button" id="6" class="nums">6</button>
+        <button type="button" id="mult" >x</button>
+        <button type="button" id="getBalance" class="big">get balance</button>
+      </div>
+      <div id="btnRow3">
+        <button type="button" id="1" class="nums">1</button>
+        <button type="button" id="2" class="nums">2</button>
+        <button type="button" id="3" class="nums">3</button>
+        <button type="button" id="sub">-</button>
+        <button type="button" id="deposit" class="big">deposit cash</button>
+      </div>
+      <div id="btnRow4">
+        <button type="button" id="0" class="nums">0</button>
+        <button type="button" id="10" class="nums">00</button>
+        <button type="button" id="dot">.</button>
+        <button type="button" id="add" >+</button>
+        <button type="button" id="withdraw" class="big">withdraw cash</button>
+      </div>
+        <div id="btnRow5">
+        <button type="button" id="equal" class="operator">=</button>
+      </div>
     </div>
   </div>
 
