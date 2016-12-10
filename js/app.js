@@ -107,5 +107,10 @@ var getBalance = document.getElementById("getBalance")
 
 var depositCash = document.getElementById("deposit")
 .addEventListener('click', function(e) {
-  myReg.
+  myReg.depositCash();
 })
+
+var withdraw = document.getElementById("withdraw")
+.addEventListener('click', function(e) {
+  myReg.withdraw();
+});

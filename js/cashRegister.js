@@ -1,16 +1,12 @@
-
-
-var cashRegister = (function(){
+var cashRegister = function(){
 
   var memory = 0;
-
 
   function getBalance() {
       console.log("get balance");
       memory = myCalc.recallMemory();
       console.log(memory)
       display.innerHTML = memory;
-      })
   }
 
   function depositCash() {
@@ -20,18 +16,17 @@ var cashRegister = (function(){
     display.innerHTML = 0;
   }
 
-
-  var withdraw = document.getElementById("withdraw")
-  .addEventListener('click', function(e) {
+  function withdraw() {
     console.log("withdraw cash");
     myCalc.clearMemory();
     display.innerHTML = 0;
     memory = 0;
-    });
+  }
 
   return {
     getBalance: getBalance,
-    depositCash: depositCash
+    depositCash: depositCash,
+    withdraw: withdraw
   }
 
-})();
+};
